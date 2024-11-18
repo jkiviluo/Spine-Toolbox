@@ -66,14 +66,10 @@ jobs:
           cd embedded-python/Scripts
           ./pip.exe --version
           ./pip.exe install ipykernel jill
-      - name: Install git
-        run: |
-          cd embedded-python/Scripts
-          ./pip.exe install git
       - name: Install FlexTool
         run: |
           dir >> $GITHUB_OUTPUT
-          ./git clone https://github.com/irena-flextool/flextool.git
+          git clone https://github.com/irena-flextool/flextool.git
           cd flextool
           ../embedded-python/Scripts/python -m pip install -r requirements.txt
       - name: List packages in embedded Python
