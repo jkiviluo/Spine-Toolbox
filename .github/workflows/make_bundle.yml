@@ -72,11 +72,10 @@ jobs:
           ./pip.exe install git
       - name: Install FlexTool
         run: |
-          cd embedded-python/Scripts
           dir >> $GITHUB_OUTPUT
           ./git clone https://github.com/irena-flextool/flextool.git
           cd flextool
-          ../python -m pip install -r requirements.txt
+          ../embedded-python/Scripts/python -m pip install -r requirements.txt
       - name: List packages in embedded Python
         run: |
           cd embedded-python/Scripts
