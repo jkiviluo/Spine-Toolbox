@@ -1,7 +1,7 @@
 name: Make PyInstaller Bundle
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       git-ref:
         description: "Git branch, tag or SHA to bundle."
@@ -66,6 +66,14 @@ jobs:
           cd embedded-python/Scripts
           ./pip.exe --version
           ./pip.exe install ipykernel jill
+      - name: Install FlexTool
+        id: flextool
+        shell: bash
+        run: |
+          cd embedded-python/Scripts
+          ./git clone https://github.com/irena-flextool/flextool.git
+          cd flextool
+          ./python -m pip install -r requirements.txt
       - name: List packages in embedded Python
         run: |
           cd embedded-python/Scripts
