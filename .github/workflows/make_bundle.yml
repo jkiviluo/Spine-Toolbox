@@ -74,7 +74,7 @@ jobs:
         run: |
           cd "dist/Spine Toolbox"
           git clone https://github.com/irena-flextool/flextool.git
-          ../../../embedded-python/python -m pip install spinedb-api
+          ../../embedded-python/python -m pip install spinedb-api
 #          cd flextool
 #          ../../../embedded-python/python -m pip install -r requirements.txt
       - name: Upload archive
